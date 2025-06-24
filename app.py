@@ -9,6 +9,8 @@ client = OpenAI(
     base_url="https://api.mistral.ai/v1"
 )
 
+print(api_key)
+
 def generate_summary(transcript: str, model: str = "mistral-medium") -> str:
     prompt = f"""
 create a consice and accurate summary of the following transcript.
