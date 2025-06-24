@@ -9,8 +9,6 @@ client = OpenAI(
     base_url="https://api.mistral.ai/v1"
 )
 
-print(api_key)
-
 def generate_summary(transcript: str, model: str = "mistral-medium") -> str:
     prompt = f"""
 create a consice and accurate summary of the following transcript.
@@ -72,6 +70,7 @@ st.write("Paste a YouTube URL and get an AI-generated comment in your favorite s
 url = st.text_input("🔗 YouTube URL")
 style = st.selectbox("🧠 Choose a comment style", ["witty", "insightful", "sarcastic", "wholesome", "funny"])
 generate = st.button("✨ Generate Comment")
+st.text_area("💬 Comment", comment, height=100)
 
 if generate and url:
     video_id = extract_video_id(url)
