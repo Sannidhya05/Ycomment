@@ -71,7 +71,6 @@ url = st.text_input("🔗 YouTube URL")
 style = st.selectbox("🧠 Choose a comment style", ["witty", "insightful", "sarcastic", "wholesome", "funny"])
 generate = st.button("✨ Generate Comment")
 api_key=api_key=os.environ.get("MISTRAL_API_KEY", "")
-st.text_area("💬 Comment", api_key, height=100)
 
 if generate and url:
     video_id = extract_video_id(url)
