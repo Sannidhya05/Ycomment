@@ -48,7 +48,7 @@ def get_transcript(video_id: str) -> str:
         transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
         return " ".join([entry['text'] for entry in transcript_list])
     except Exception as e:
-        print(f"❌ Error getting transcript for {video_id}: {e}")
+        st.error(f"❌ Transcript error: {e}")
         return ""
 
 def extract_video_id(url: str) -> str:
