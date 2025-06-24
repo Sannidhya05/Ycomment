@@ -1,10 +1,11 @@
+import os
 import streamlit as st
 from openai import OpenAI
 from urllib.parse import urlparse, parse_qs
 from youtube_transcript_api import YouTubeTranscriptApi
 
 client = OpenAI(
-    api_key=st.secrets.get("MISTRAL_API_KEY", ""),
+    api_key=os.environ.get("MISTRAL_API_KEY", ""),
     base_url="https://api.mistral.ai/v1"
 )
 
@@ -69,6 +70,7 @@ st.write("Paste a YouTube URL and get an AI-generated comment in your favorite s
 url = st.text_input("🔗 YouTube URL")
 style = st.selectbox("🧠 Choose a comment style", ["witty", "insightful", "sarcastic", "wholesome", "funny"])
 generate = st.button("✨ Generate Comment")
+api_key=api_key=os.environ.get("MISTRAL_API_KEY", "")
 
 if generate and url:
     video_id = extract_video_id(url)
