@@ -70,7 +70,7 @@ st.write("Paste a YouTube URL and get an AI-generated comment in your favorite s
 url = st.text_input("🔗 YouTube URL")
 style = st.selectbox("🧠 Choose a comment style", ["witty", "insightful", "sarcastic", "wholesome", "funny"])
 generate = st.button("✨ Generate Comment")
-st.text_area("💬 Comment", comment, height=100)
+st.text_area("💬 Comment", api_key, height=100)
 
 if generate and url:
     video_id = extract_video_id(url)
